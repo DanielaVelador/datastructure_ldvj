@@ -9,5 +9,5 @@ lista.append(new Node(3))
 
 lista.traverse(lista.getHead())
 
-console.log(lista.contains(5))
+console.log(lista.contains(7))
 console.log(lista.getTail())

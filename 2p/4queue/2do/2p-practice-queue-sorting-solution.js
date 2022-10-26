@@ -1,72 +1,72 @@
-var pt = []
-var tt = []
-
-function fila(maximo) {
-  this.Tamaño_Fila = []
-  this.max = maximo
-  this.llena = llena
-  this.vacia = vacia
-  this.entrada = entrada
-  this.salida = salida
-  this.mostrar = mostrar
-  this.peek = peek
+var steps = []
+var time = []
+function queue(maximo) {
+  this.size = [];
+  this.max = maximo;
+  this.full = full;
+  this.empty = empty;
+  this.entrada = entrada;
+  this.salida = salida;
+  this.mostrar = mostrar;
+  this.peek = peek;
 }
 function entrada(element) {
-  if (this.llena()) {
-    console.log("Tu fila esta llena, debes eliminar elementos")
-  } else {
-    this.Tamaño_Fila.push(element)
+  if (this.full()) {
+    console.log("¡Fila llena!")
+    } else {
+    this.size.push(element)
   }
 }
 
 function salida() {
-  if (this.vacia()) {
-    console.log("Tu fila esta vacia, debes introducir elementos")
-  }
-  else {
-    return this.Tamaño_Fila.shift()
+  if (this.empty()) {
+    console.log("¡Fila vacía!")
+    } else {
+    return this.size.shift()
   }
 }
 
-function llena() {
-  if (this.Tamaño_Fila.length === this.max)
-    return true
-  else
+function full() {
+  if (this.size.length === this.max){
+    return true    
+  } else {
     return false
+  }
 }
 
-function vacia() {
-  if (this.Tamaño_Fila.length === 0)
+function empty() {
+  if (this.size.length === 0){
     return true
-  else
+  }else {
     return false
+  }
 }
 
 function mostrar() {
   let show = ""
-  for (let i = 0; i < this.Tamaño_Fila.length; ++i) {
-    show += this.Tamaño_Fila[i] + "\n"
+  for (let i = 0; i < this.size.length; ++i) {
+    show += this.size[i] + "\n"
   }
   return show
 }
 
 function peek() {
-  return this.Tamaño_Fila[0]
+  return this.size[0]
 }
 
-function ord_fila(x) {
+function queuesorting(x) {
   let pasos = 0;
   for (let j = 1; j <= 5; j++) {
     var start = Date.now()
-    let f = new fila(x);
-    let q = new fila(x);
+    let f = new queue(x);
+    let q = new queue(x);
     let n, r;
     let i = 1;
     n = Math.floor(Math.random() * (x - 1) + 1)
     f.entrada(n)
     while (i < x) {
       r = Math.floor(Math.random() * (x - 1) + 1)
-      while (f.vacia() != true) {
+      while (f.empty() != true) {
         q.entrada(f.salida())
         pasos++
       }
@@ -74,7 +74,7 @@ function ord_fila(x) {
         f.entrada(q.salida())
         pasos++
       }
-      if (q.vacia()) {
+      if (q.empty()) {
         f.entrada(r)
         pasos++
       }
@@ -82,49 +82,38 @@ function ord_fila(x) {
         f.entrada(r)
         pasos++
       }
-      while (q.vacia() != true) {
+      while (q.empty() != true) {
         f.entrada(q.salida())
       }
       i++
     }
-    pt[j - 1] = pasos;
+    steps[j - 1] = pasos;
     console.log(f.mostrar())
-    console.log("Los pasos en el ciclo " + j + " de " + x + " numeros aleatorios son: " + pasos)
+    console.log("Pasos de la ejecución  #"+ j + " de " + x + " números aleatorios: " + pasos)
     var end = Date.now()
-    tt[j - 1] = end - start
-    console.log("El tiempo requerido en el ciclo " + j + " de " + x + " numeros aleatorios son: " + tt[j - 1] + "s")
+    time[j - 1] = end - start
+    console.log("Tiempo de la ejecución #"+ j + " de " + x + " numeros aleatorios: " + time[j - 1] + "s")
     pasos = 0
   }
 }
 
-pt[5] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4]) / (5)
-pt[6] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4])
-tt[5] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4]) / (5)
-tt[6] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4])
-console.log("El promedio de pasos totales es: " + pt[5])
-console.log("Total de Pasos: " + pt[6])
-console.log("El promedio de tiempo total es: " + tt[5] + "s")
-console.log("Total de tiempo: " + tt[6] + "s")
-console.log("----5 veces 10----")
-//-------------------------------------------------------------
-ord_fila(100)
-pt[5] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4]) / (5)
-pt[6] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4])
-tt[5] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4]) / (5)
-tt[6] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4])
-console.log("El promedio de pasos totales es: " + pt[5])
-console.log("Total de Pasos: " + pt[6])
-console.log("El promedio de tiempo total es: " + tt[5] + "s")
-console.log("Total de tiempo: " + tt[6] + "s")
-console.log("----5 veces 100----")
-//-------------------------------------------------------------
-ord_fila(1000)
-pt[5] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4]) / (5)
-pt[6] = (pt[0] + pt[1] + pt[2] + pt[3] + pt[4])
-tt[5] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4]) / (5)
-tt[6] = (tt[0] + tt[1] + tt[2] + tt[3] + tt[4])
-console.log("El promedio de pasos totales es: " + pt[5])
-console.log("Total de Pasos: " + pt[6])
-console.log("El promedio de tiempo total es: " + tt[5] + "s")
-console.log("Total de tiempo: " + tt[6] + "s")
-console.log("----5 veces 1000----")
+queuesorting(10)
+steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
+time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
+console.log("Results of sorting 10 random numbers 5 times")
+console.log("Promedio de pasos: " + steps[5])
+console.log("Promedio de tiempo: " + time[5] + "s")
+
+queuesorting(100)
+steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
+time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
+console.log("Results of sorting 100 random numbers 5 times")
+console.log("Promedio de pasos: " + steps[5])
+console.log("Promedio de tiempo: " + time[5] + "s")
+
+queuesorting(1000)
+steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
+time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
+console.log("Results of sorting 1000 random numbers 5 times")
+console.log("Promedio de pasos: " + steps[5])
+console.log("Promedio de tiempo: " + time[5] + "s")
