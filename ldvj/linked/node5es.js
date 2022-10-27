@@ -64,8 +64,7 @@ function getTail() {
 }
 
 function InsertAfter(n, e) {
-  let a = this.head
-  let direcciones;
+  let a = this.head,direcciones;
   while (a) {
     if (e == a.data) {
       direcciones = a.next
@@ -76,8 +75,7 @@ function InsertAfter(n, e) {
 }
 
 function InsertBefore(n, e) {
-  let a = this.head
-  let before, direcciones
+  let a = this.head, before, direcciones
   if (a.next == null) {
     this.prepend(n)
   } else {
