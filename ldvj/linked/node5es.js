@@ -1,8 +1,8 @@
 export { Linked, Node }
 import Node from './node.js'
-function Linked(n) {//node
-  this.head = n//node
-  this.tail = n//node
+function Linked(n) {
+  this.head = n
+  this.tail = n
   this.size = 1
 
   this.getHead = getHead
@@ -19,14 +19,14 @@ function Linked(n) {//node
 function getHead() {
   return this.head
 }
-function prepend(n) {//new node
+function prepend(n) {
   n.next = this.head
   this.head = n
   this.size++
 }
 
-function append(n) {//new node
-  n.next = null//
+function append(n) {
+  n.next = null
   this.tail.next = n
   this.tail = n
   this.size++
@@ -34,8 +34,7 @@ function append(n) {//new node
 
 function traverse() {
   let c = this.head
-  while (c) {//exists
-    //console.log(c.key)
+  while (c) {
     console.log(c.data)
     c = c.next
   }
@@ -49,29 +48,26 @@ function contains(v) {
   let c = this.head
   let encontrar = false;
 
-  while (c) {//exists
+  while (c) {
     if (v == c.data) {
       encontrar = c.data
-    }
-    c = c.next
-  }
-  return encontrar
-
+    }c = c.next
+  }return encontrar
 }
+
 function getTail() {
   let c = this.head
   var cola = ""
   while (c) {
     cola = c.data
     c = c.next
-  }
-  return cola
+  }return cola
 }
-//Metodos nuevos
+
 function InsertAfter(n, e) {
   let c = this.head
   let direcciones;
-  while (c) {//exists
+  while (c) {
     if (e == c.data) {
       direcciones = c.next
       c.next = n
@@ -80,6 +76,7 @@ function InsertAfter(n, e) {
     c = c.next
   }
 }
+
 function InsertBefore(n, e) {
   let c = this.head
   let obj_ant, direcciones
@@ -87,7 +84,7 @@ function InsertBefore(n, e) {
     this.prepend(n)
   } else {
     if (e != this.head.data) {
-      while (c) {//exists
+      while (c) {
         if (e != c.data) {
           obj_ant = c
         } else {
