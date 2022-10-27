@@ -8,8 +8,8 @@ lista.append(n2)
 lista.append(new Node('c'))
 lista.traverse(lista.getHead())
 
-lista.InsertAfter(new Node('f'), 'b')
+lista.InsertAfter(new Node('d'), 'b')
 lista.traverse(lista.getHead())
 
-lista.InsertBefore(new Node('e'), 'b')
+lista.InsertBefore(new Node('f'), 'b')
 lista.traverse(lista.getHead())

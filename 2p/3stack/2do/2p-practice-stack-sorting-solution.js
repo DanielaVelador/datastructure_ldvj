@@ -1,6 +1,6 @@
 var steps = []
 var time = []
-function stack(maximo) {
+function Stack(maximo) {
   this.size = []
   this.max = maximo
   this.full = full
@@ -60,8 +60,8 @@ function stacksorting(x) {
   let pasos = 0;
   for (let j = 1; j <= 5; j++) {
     var start = Date.now()
-    let p = new stack(x);
-    let s = new stack(x);
+    let p = new Stack(x);
+    let s = new Stack(x);
     let n, r;
     let i = 1;
     n = Math.floor(Math.random() * (x - 1) + 1)
@@ -81,8 +81,7 @@ function stacksorting(x) {
         pasos++
       }
       i++
-    }
-    while (!s.empty()) {
+    } while (!s.empty()) {
       p.entrada(s.salida())
     }
     steps[j - 1] = pasos;

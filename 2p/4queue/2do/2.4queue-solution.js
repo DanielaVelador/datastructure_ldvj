@@ -1,66 +1,70 @@
-function cola() {
-  this.Tamaño_Cola = []
-  this.max = 5
-  this.entrada = entrada
-  this.salida = salida
-  this.llena = llena
-  this.vacia = vacia
-  this.mostrar = mostrar
+function queue() {
+    this.dataStore = []
+    this.top = 5
+
+    this.enqueue= function(element) {
+      if(this.full()){
+        console.log("¡Fila llena!")
+      }
+      else{this.dataStore.push(element)
+      }
+    }
+
+    this.dequeue= function() {
+      if(this.empty()){
+        console.log("¡Fila vacía!")
+      }
+      else{
+        return this.dataStore.shift()
+      }
+    }
+
+    this.front= function() {
+	return this.dataStore[0]
+    }
+
+    this.back= function() {
+	return this.dataStore[this.dataStore.length-1]
+    }
+
+    this.toString= function() {
+	let a = ""
+	for (let i = 0; i < this.dataStore.length; ++i) {
+	    a += this.dataStore[i] + "\n"
+	}
+	return a
+    }
+
+    this.empty= function() {
+	if (this.dataStore.length == 0)
+	    return true	
+	else 
+	    return false
+    }
+
+    this.full= function() {
+      if (this.dataStore.length == this.top)
+	      return true	
+	    else 
+	      return false
+    }
 }
 
+//testing
+let tq = new queue()
+tq.enqueue("Maddie")
+tq.enqueue("Mackenzie")
+tq.enqueue("Kendall")
+tq.enqueue("Nia")
+tq.enqueue("Kalani")
 
-function entrada(element) {
-  if (this.llena()) {
-    console.log("Tu fila esta llena, debes eliminar elementos")
-  }
-  else {
-    this.Tamaño_Cola.push(element)
-  }
-}
+console.log(tq.toString())
+console.log("Front: " + tq.front())
+console.log("Back: " + tq.back())
 
-function salida() {
-  if (this.vacia()) {
-    console.log("Tu fila esta vacia, debes introducir elementos")
-  }
-  else {
-    this.Tamaño_Cola.shift()
-  }
-}
-
-function llena() {
-  if (this.Tamaño_Cola.length === this.max)
-    return true
-  else
-    return false
-}
-
-function vacia() {
-  if (this.Tamaño_Cola.length === 0)
-    return true
-  else
-    return false
-}
-
-function mostrar() {
-  let show = ""
-  for (let i = 0; i < this.Tamaño_Cola.length; ++i) {
-    show += this.Tamaño_Cola[i] + "\n"
-  }
-  return show
-}
-
-let prueba = new cola();
-
-prueba.entrada("Lehi")
-prueba.entrada("Fernando")
-prueba.entrada("Lupian")
-prueba.entrada("Javier")
-prueba.entrada("Daniela")
-console.log(prueba.mostrar())
-prueba.entrada("Daniel")
-prueba.salida()
-prueba.salida()
-prueba.salida()
-prueba.salida()
-prueba.salida()
-prueba.salida()
+tq.dequeue()
+tq.dequeue()
+tq.dequeue()
+tq.dequeue()
+tq.dequeue()
+console.log(tq.toString())

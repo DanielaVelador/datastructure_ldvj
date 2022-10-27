@@ -97,23 +97,9 @@ function queuesorting(x) {
   }
 }
 
-queuesorting(10)
+queuesorting(10)//change to 10,100 or 1000
 steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
 time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
 console.log("Results of sorting 10 random numbers 5 times")
-console.log("Promedio de pasos: " + steps[5])
-console.log("Promedio de tiempo: " + time[5] + "s")
-
-queuesorting(100)
-steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
-time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
-console.log("Results of sorting 100 random numbers 5 times")
-console.log("Promedio de pasos: " + steps[5])
-console.log("Promedio de tiempo: " + time[5] + "s")
-
-queuesorting(1000)
-steps[5] = (steps[0] + steps[1] + steps[2] + steps[3] + steps[4])/5
-time[5] = (time[0] + time[1] + time[2] + time[3] + time[4])/5
-console.log("Results of sorting 1000 random numbers 5 times")
 console.log("Promedio de pasos: " + steps[5])
 console.log("Promedio de tiempo: " + time[5] + "s")
