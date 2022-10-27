@@ -64,15 +64,14 @@ function getTail() {
 }
 
 function InsertAfter(n, e) {
-  let c = this.head
+  let a = this.head
   let direcciones;
-  while (c) {
-    if (e == c.data) {
-      direcciones = c.next
-      c.next = n
+  while (a) {
+    if (e == a.data) {
+      direcciones = a.next
+      a.next = n
       n.next = direcciones
-    }
-    c = c.next
+    } a = a.next
   }
 }
 
@@ -90,8 +89,7 @@ function InsertBefore(n, e) {
           direcciones = before.next
           before.next = n
           n.next = direcciones
-        }
-        a = a.next
+        } a = a.next
       }
     } else {
       this.prepend(o)
