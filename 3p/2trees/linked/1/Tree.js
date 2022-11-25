@@ -12,9 +12,13 @@ function Node(o){
 
 let p = new Node('+')
 let o1 = new Node(3)
-let o2 = new Node(-1)
+let o2 = new Node('/')
+let q1 = new Node(2)
+let q2 = new Node(7)
 
 p.l = o1
 p.r = o2
+o2.l=q1
+o2.r=q2
 
 preorder(p)
