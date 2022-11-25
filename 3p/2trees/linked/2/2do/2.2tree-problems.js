@@ -24,7 +24,7 @@ function posorder(n) {
     console.log(n.d)
   }
 }
-///////////////////////////////////////////////////
+//
 function preorder2(n) {
   if (n) {
     console.log(n.d)
@@ -46,9 +46,7 @@ function posorder2(n) {
     console.log(n.d)
   }
 }
-
-
-///////////////////////////////////////////////////
+//
 let p = new Node('+')
 let o1 = new Node(3)
 let o2 = new Node('/')

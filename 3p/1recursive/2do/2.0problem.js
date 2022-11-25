@@ -12,31 +12,31 @@ function fib(n) {
     console.log(fibonacci_rec(i));
   }
 }
-console.log("Secuencia Fibonacci")
+console.log("Secuencia de Fibonacci")
 fib(5)
 
 //Potencias
-function power(x, n) {
+function power(a, b) {
   var r = 1;
-  if (n === 0) {
+  if (b === 0) {
     return r
   }
-  r = x
-  r = r * power(x, n - 1)
+  r = a
+  r = r * power(a, b - 1)
   return r
 }
 console.log("Potencias")
-console.log(power(2, 3))
+console.log(power(5, 5))
 
 //Factoriales
-function factorial(x) {
-  if (x === 0 || x === 1)
+function factorial(a) {
+  if (a === 0 || a === 1)
     return 1
-  else if (x < 0)
-    return "Not Valid Value"
-  let fact = x
-  fact = fact * factorial(x - 1)
+  else if (a < 0)
+    return "Valor inválido"
+  let fact = a
+  fact = fact * factorial(a - 1)
   return fact
 }
 console.log("Factoriales")
-console.log(factorial(3))
+console.log(factorial(11))
